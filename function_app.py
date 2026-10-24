@@ -30,7 +30,7 @@ SITES = [
     {"name": "Paytm",           "url": "https://paytm.com"},
     {"name": "Swiggy",          "url": "https://www.swiggy.com"},
     {"name": "Zomato",          "url": "https://www.zomato.com"},
-    {"name": "HDFC Bank",       "url": "https://www.hdfcbank.com"},
+    {"name": "Youtube",       "url": "https://www.youtube.com/"},
 ]
 TIMEOUT_S = 10      # a request slower than this counts as a timeout
 REPEATS = 3         # checks in a row before we call something an incident
