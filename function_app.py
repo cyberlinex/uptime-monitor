@@ -21,7 +21,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 # ---------- settings ----------
 SITES = [
-    {"name": "IRCTC",           "url": "https://www.irctc.co.in"},
+    {"name": "ChatGPT",           "url": "https://chatgpt.com/"},
     {"name": "Flipkart",        "url": "https://www.flipkart.com"},
     {"name": "Zerodha",         "url": "https://zerodha.com"},
     {"name": "SBI",             "url": "https://sbi.co.in"},
