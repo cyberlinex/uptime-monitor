@@ -26,7 +26,7 @@ SITES = [
     {"name": "Zerodha",         "url": "https://zerodha.com"},
     {"name": "SBI",             "url": "https://sbi.co.in"},
     {"name": "Times of India",  "url": "https://timesofindia.indiatimes.com"},
-    {"name": "NDTV",            "url": "https://www.ndtv.com"},
+    {"name": "Claude",            "url": "https://claude.ai"},
     {"name": "Paytm",           "url": "https://paytm.com"},
     {"name": "Swiggy",          "url": "https://www.swiggy.com"},
     {"name": "Zomato",          "url": "https://www.zomato.com"},
