@@ -19,7 +19,7 @@ from azure.data.tables import TableServiceClient
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-# ---------- settings ----------
+#  settings 
 SITES = [
     {"name": "ChatGPT",           "url": "https://chatgpt.com/"},
     {"name": "Flipkart",        "url": "https://www.flipkart.com"},
@@ -39,7 +39,7 @@ MIN_STD_MS = 20     # floor on std dev so very steady sites don't false-alarm
 MIN_HISTORY = 30    # good checks needed (~2.5 h) before judging speed
 
 
-# ---------- small helpers ----------
+#  small helpers 
 def now():
     return datetime.now(timezone.utc)
 
@@ -76,7 +76,7 @@ def notify(text):
         logging.exception("Telegram alert failed")
 
 
-# ---------- 1. checking ----------
+#  1. checking 
 def ping(site):
     status, error = 0, ""
     start = time.perf_counter()
@@ -103,7 +103,7 @@ def get_checks(site_slug, since):
              "ms": r["response_ms"]} for r in rows]  # oldest -> newest
 
 
-# ---------- 2. detection ----------
+#  2. detection 
 def is_outage(checks):
     """Last 3 checks all failed (non-2xx or timeout)."""
     last = checks[-REPEATS:]
@@ -121,7 +121,7 @@ def is_slowdown(checks):
     return all(c["ok"] and (c["ms"] - mean) / std > Z_LIMIT for c in recent)
 
 
-# ---------- 3. incidents + alerts ----------
+#  3. incidents + alerts 
 def update_incident(site, kind, active, open_incidents, start_msg, end_msg):
     """Open an incident (and alert) when a problem starts; close it when it ends.
     Alerting only on changes means a long outage sends 2 messages, not hundreds."""
@@ -162,7 +162,7 @@ def check_sites(timer: func.TimerRequest) -> None:
                             f"🟢 {site['name']} speed is back to normal")
 
 
-# ---------- 4. API for the status page ----------
+#  4. API for the status page 
 @app.route(route="status", methods=["GET"])
 def status(req: func.HttpRequest) -> func.HttpResponse:
     since = now() - timedelta(hours=24)
