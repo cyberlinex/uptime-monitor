@@ -154,12 +154,12 @@ def check_sites(timer: func.TimerRequest) -> None:
         checks = get_checks(slug(site["name"]), since)
         outage = is_outage(checks)
         update_incident(site, "outage", outage, open_incidents,
-                        f"🔴 {site['name']} is DOWN ({REPEATS} failed checks in a row)\n{site['url']}",
-                        f"🟢 {site['name']} is back up")
+                        f" {site['name']} is DOWN ({REPEATS} failed checks in a row)\n{site['url']}",
+                        f" {site['name']} is back up")
         if not outage:
             update_incident(site, "slowdown", is_slowdown(checks), open_incidents,
-                            f"🟡 {site['name']} is unusually slow right now",
-                            f"🟢 {site['name']} speed is back to normal")
+                            f" {site['name']} is unusually slow right now",
+                            f" {site['name']} speed is back to normal")
 
 
 #  4. API for the status page 
